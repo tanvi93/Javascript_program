@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chain method</title>
+</head>
+<body>
+  <h4>Additon by chaining method is</h4>
+  <p id = "data"></p>
+  <script>
+
+  var Calculator = function () {
+  this.amount = 0;
+}
+
+Calculator.prototype.first = function (a) {
+  this.amount += a;
+  return this;
+};
+
+Calculator.prototype.second = function (b) {
+  this.amount += b;
+  return this;
+};
+
+Calculator.prototype.sum = function () {
+  return this.amount;
+};
+
+var calculator = new Calculator();
+var amt = calculator.first(15).second(10).sum();
+document.getElementById("data").innerHTML = amt;
+  </script>
+
+</body>
+</html>
