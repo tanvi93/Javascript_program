@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>student form</title>
+<link rel="stylesheet" type="text/css" href="stud_form.css">
+</head>
+<body>
+  <script type="text/javascript">
+
+          function Print()
+          {
+             var fname = document.student.Name.value;
+             var rol = document.student.Roll_no.value;
+             var age1 = document.student.Age.value;
+
+             document.writeln("Student data :");
+             document.writeln("<br>");
+             document.writeln(" Name       : " + fname);
+             document.writeln("<br>");
+             document.writeln("Roll no.    : " + rol);
+             document.writeln("<br>");
+             document.writeln("Age         : " + age1);
+          }
+        </script>
+        <div>
+<form name="student">
+   <label for="Name">Name</label>
+  <input type="text" name="Name"  ><br><br>
+
+<label for="Roll_no">Roll no.</label>
+  <input type="number" name="Roll_no"  min="0" ><br><br>
+
+  <label for="Age">Age</label>
+    <input type="number" name="Age"  min = "5" max = "12"><br><br>
+
+  <input type="button" onclick = "Print()" value="Submit"><br><br>
+
+</form>
+</div>
+</div>
+
+</body>
+</html>

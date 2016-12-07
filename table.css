@@ -2,11 +2,14 @@
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 50%;
+    border-spacing: "0";
+    cellpadding: 0 ;
+    cellspacing: 0;
+    border: 1px solid #000000;
 }
 
 td, th {
     border: 1px solid #000000;
     text-align: left;
-    padding: 8px;
+
 }
