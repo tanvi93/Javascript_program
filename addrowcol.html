@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="table.css">
+</head>
+<body>
+  <table id = "my-table" onload="insertText()" >
+
+  <tr>
+  <th id="td1"><input type="text" /></th>
+  <th id="td1"></th>
+  <th id="td1"></th>
+  </tr>
+
+  </table>
+
+<input type = "button" onclick = "addRow()" value = "Add Row" >
+<input type = "button" onclick = "addColumn()" value = "Add Column" >
+<script>
+
+
+function addRow() {
+    var tbl = document.getElementById('my-table'), // table reference
+        row = tbl.insertRow(tbl.rows.length),      // append table row
+        i;
+    // insert table cells to the new row
+    for (i = 0; i < tbl.rows[0].cells.length; i++) {
+        row.insertCell(i), i, 'row';
+    }
+}
+
+// create DIV element and append to the table cell
+/*function createCell(cell, text, style) {
+    var div = document.createElement('div'), // create DIV element
+        txt = document.createTextNode(text); // create text node
+    div.appendChild(txt);                    // append text node to the DIV
+    div.setAttribute('class', style);        // set DIV class attribute
+    div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
+    cell.appendChild(div);                   // append DIV to the table cell
+}*/
+
+function addColumn() {
+    var tbl = document.getElementById('my-table'), // table reference
+        i;
+    // open loop for each row and append cell
+    for (i = 0; i < tbl.rows.length; i++) {
+      tbl.rows[i].insertCell(tbl.rows[i].cells.length);
+    }
+}
+</script>
+
+</body>
+</html>

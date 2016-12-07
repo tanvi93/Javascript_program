@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Link_display</title>
+  <script type="text/javascript">
+
+  function getTotalLinks(){
+      var n = document.links.length;
+      document.getElementById("pLinks").innerHTML="Total number of links: " + n;
+      }
+
+        function printAllLinks(){
+          var totalLinks=document.links.length;
+        //  document.getElementById("pLinks").innerHTML="";
+          for(var i=0;i<totalLinks;i++){
+            document.getElementById("pLinks").innerHTML+=
+              "Link: " + document.links[i].innerHTML+"<br>";
+          }
+        }
+      </script>
+
+  	</head>
+  	<body>
+  		<h4>JavaScript - Print All Links , Total Number of Links in a Page.</h4>
+  		<p>
+  			<a href="http://www.wikihow.com">http://www.wikihow.com</a><br>
+  			<a href="http://www.wikipedia.org">http://www.wikipedia.org</a><br>
+        <a href="http://www.google.com">http://www.google.com</a><br>
+        <a href="http://www.w3schools.com">http://www.w3schools.com</a><br>
+
+  		</p>
+  		<input type="button" value="Get total links." onclick='getTotalLinks()'/>
+  		<input type="button" value="Print All Links." onclick='printAllLinks()'/>
+  		<p id="pLinks"></p>
+
+</body>
+</html>
