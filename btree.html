@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+  var BinarySearchTree = function(value) {
+    var instance = Object.create(BinarySearchTree.prototype);
+//Create BST constructor
+//define value, right child and left child
+      instance.value = value;
+      // a BST where all values are higher than than the current value.
+      instance.right = undefined;
+      // a binary search tree (BST) where all values are lower than than the current value.
+      instance.left = undefined;
+
+    return instance
+  };
+//Define insert method on prototype (value)
+  BinarySearchTree.prototype.insert = function (value) {
+    // accepts a value and places in the tree in the correct position.
+    //Create new node with passed in value
+    var node = BinarySearchTree(value);
+//Create recursive function
+    function recurse(bst) {
+      //If current node value > value && left child is undefined
+      if (bst.value > value && bst.left === undefined) {
+        //Insert node as left child
+        bst.left = node;
+      //  If current node value > value
+      } else if (bst.value > value) {
+        // Recurse current node left child
+        recurse(bst.left);
+        //If current node value <value && right child is undefined
+      } else if (bst.value < value && bst.right === undefined) {
+        //Insert node as right child
+        bst.right = node;
+        // If current node value <value
+      } else if (bst.value < value) {
+        //Recurse current node right child
+        recurse(bst.right);
+      }
+    }
+//Call recursive function on root node
+    recurse(this);
+  }
+//Define contains method on prototype (value)
+  BinarySearchTree.prototype.contains = function (value) {
+    // Create variable to hold found node
+    var doesContain = false;
+    //accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
+    // Create recursive function
+    function recurse(bst) {
+      //If current node value is equal to value
+      if (bst.value === value) {
+        // Set variable equal to true
+        doesContain = true;;
+        // else if BST left child is !undefined && value < BST value
+      } else if (bst.left !== undefined && value < bst.value) {
+        //recurse with current node's left child
+        recurse(bst.left);
+        //else if BST right child is !undefined && value > BST value
+      } else if (bst.right !== undefined && value > bst.value) {
+        // recurse with current node's right child
+        recurse(bst.right)
+      }
+    }
+//Call recursive function on root node
+    recurse(this);
+    //Return variable of found node
+    return doesContain;
+  }
+//Define depthFirstLog method on prototype (callback)
+  BinarySearchTree.prototype.depthFirstLog = function (callback) {
+    //accepts a callback and executes it on every value contained in the tree.
+    //Create recursive function
+    function recurse(bst) {
+      //Use call with callback on BST and BST value
+      callback.call(bst, bst.value)
+//If left child is not undefined
+      if (bst.left !== undefined) {
+        // Recurse through left child
+        recurse(bst.left)
+      }
+//If right child is not undefined
+      if (bst.right !== undefined) {
+        //  Recurse through right child
+        recurse(bst.right);
+      }
+    }
+//Call recursive functCall recursive function on root nodeion on root node
+    recurse(this);
+  }
+    </script>
+  </body>
+</html>
+  </body>
+</html>
