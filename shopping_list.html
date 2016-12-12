@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping list</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var mylist = [
+
+      {
+          name:"chocolate_bar",
+          Quantity: 15
+      },
+      {
+        name:"Soap",
+        Quantity: 5
+      },
+      {
+        name:"Almonds",
+        Quantity: 2
+      },
+      {
+        name:"Chips",
+        Quantity: 10
+      }
+];
+
+function push(){
+  mylist.push({name:"cold_drinks", Quantity: 10});
+  document.write("<br>" + "list after push:  " + "<br>");
+  for (var i=0 ; i < mylist.length ; i++){
+  document.write(mylist[i].name+ " " + mylist[i].Quantity);
+  document.write("<br>");
+}
+}
+
+for (var i=0 ; i < mylist.length ; i++){
+document.write(mylist[i].name+ " " + mylist[i].Quantity);
+document.write("<br>");
+}
+
+function pop(){
+mylist.pop();
+  document.write("<br>" + "Array after pop: " +  "<br>");
+  for (var i=0 ; i < mylist.length ; i++){
+document.write(mylist[i].name+ " " + mylist[i].Quantity);
+document.write("<br>");
+}
+}
+
+function shift(){
+mylist.shift();
+  document.write("<br>" + "Array after shift operation: " +  "<br>");
+  for (var i=0 ; i < mylist.length ; i++){
+document.write(mylist[i].name+ " " + mylist[i].Quantity);
+document.write("<br>");
+}
+}
+
+function unshift(){
+  mylist.unshift({name:"cold_drinks", Quantity: 10});
+  document.write("<br>" + "list after unshift operation:  " + "<br>");
+  for (var i=0 ; i < mylist.length ; i++){
+  document.write(mylist[i].name+ " " + mylist[i].Quantity);
+  document.write("<br>");
+}
+}
+push();
+pop();
+shift();
+unshift();
+    </script>
+  </body>
+</html>
