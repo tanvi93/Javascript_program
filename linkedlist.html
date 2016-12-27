@@ -20,23 +20,19 @@ linkedlist.prototype.insert= function(value) {
     var node = new Node(value),
         currentNode = this.head;
 
-    // 1st use-case: an empty list
+    // 1stcase: an empty list
     if (!currentNode) {
         this.head = node;
         this._length++;
-
         return node;
     }
-
-    // 2nd use-case: a non-empty list
+    // 2nd case: a non-empty list
     while (currentNode.next) {
         currentNode = currentNode.next;
     }
 
     currentNode.next = node;
-
     this.length++;
-
     return node;
 };
 
@@ -66,12 +62,12 @@ linkedlist.prototype.remove = function(position) {
         nodeToDelete = null,
         deletedNode = null;
 
-    // 1st use-case: an invalid position
+    // 1stcase: an invalid position
     if (position < 0 || position > length) {
       document.write("Error");
     }
 
-    // 2nd use-case: the first node is removed
+    // 2nd case: the first node is removed
     if (position === 1) {
         this.head = currentNode.next;
         deletedNode = currentNode;
@@ -81,7 +77,7 @@ linkedlist.prototype.remove = function(position) {
         return deletedNode;
     }
 
-    // 3rd use-case: any other node is removed
+    // 3rd case: any other node is removed
     while (count < position) {
         beforeNodeToDelete = currentNode;
         nodeToDelete = currentNode.next;
@@ -123,7 +119,7 @@ list.remove(2);
 list.display();
 list.insert(37);
 list.display();
-list.search(23);
+list.search(21);
       </script>
   </body>
 </html>

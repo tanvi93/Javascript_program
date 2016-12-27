@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <script type="text/javascript">
+      //function vehicle
+      var vehicle = function () {
+}
+      vehicle.prototype.maxSpeed = function (speed) {
+          this.maxSpeed = speed;
+          return this.maxSpeed;
+      };
+
+      vehicle.prototype.vehicleType = function (type) {
+          this.vehicleType = type;
+          return this.vehicleType;
+      };
+
+      vehicle.prototype.displacement = function (arg) {
+          this.displacement = arg;
+          return this.displacement;
+      };
+      var bike = new vehicle();
+      bike.getspeed = function () {
+          return this.maxSpeed;
+            return this.vehicleType;
+
+      };
+bike.maxSpeed(280);
+document.write("Vehicle speed : " + bike.getspeed());
+document.write(bike.vehicleType(" Honda"));
+document.write(bike.displacement(" 999 cc"));
+
+
+
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    function friendly(str) {
+var res = [];
+var months = {1:'January', 2:'February', 3:'March', 4:'April', 5:'May', 6:'June', 7:'July', 8:'August', 9:'September', 10:'October', 11:'November', 12:'December'};
+
+
+var begin_date = str[0].split('-');
+var end_date = str[1].split('-');
+
+for (var i = 0; i < begin_date.length; i++) {
+  begin_date[i] = parseInt(begin_date[i]);
+  end_date[i] = parseInt(end_date[i]);
+}
+
+var day = {1:'st', 2:'nd', 3:'rd', 4:'th', 5:'th', 6:'th', 7:'th', 8:'th', 9:'th', 0:'th',10:'th',11:'th',12:'th',13:'th'};
+
+if (str[0] === str[1]) {
+     console.log(months[begin_date[1]]+' '+begin_date[2]+day[begin_date[2]]+','+' '+begin_date[0]);
+}
+else if (begin_date[0]-end_date[0] == 0){
+  if(begin_date[0] == 2016 && end_date[0] == 2016){
+      console.log(months[begin_date[1]]+' '+begin_date[2]+day[begin_date[2]]+","+end_date[2]+day[end_date[2]]+','+' '+begin_date[0]);
+  }else
+  console.log(months[begin_date[1]]+' '+begin_date[2]+day[begin_date[2]]+","+end_date[2]+day[end_date[2]]);
+}
+
+else if(begin_date[0]-end_date[0] == 0 && begin_date[1]-end_date[1] == 0 ){
+  console.log(months[begin_date[1]]+' '+begin_date[2]+day[begin_date[2]]+" "+end_date[2]+day[end_date[2]]+','+' '+begin_date[0]);
+
+}
+
+else {
+console.log(months[begin_date[1]]+' '+begin_date[2]+day[begin_date[2]]+','+' '+begin_date[0]+","+months[end_date[1]]+' '+end_date[2]+day[end_date[2]]+','+' '+end_date[0]);
+}
+
+return res;
+}
+
+friendly(['2016-07-01', '2016-07-04']);
+friendly(["2018-01-13", "2018-01-13"]);
+friendly(["2016-12-01", "2017-02-03"]);
+friendly(["2022-09-05", "2023-09-02"]);
+    </script>
+  </body>
+</html>

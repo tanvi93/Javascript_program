@@ -24,7 +24,7 @@
 		"artist": "Bon Jovi",
 		"tracks": [
 			"Let It Rock",
-			"You Give Love a Bad Name"
+
 		]
 	},
 	"5439": {
@@ -38,7 +38,7 @@
 // JSON.stringify turns a Javascript object into JSON text and stores that JSON text in a string.
 //
 // JSON.parse turns a string of JSON text into a Javascript object.
-// Only change code below this line
+
 
 function update(id, prop, value) {
 
@@ -50,7 +50,8 @@ function update(id, prop, value) {
    else {
     music[id][prop]=[value];
    }
- } else if (value !== "") {
+ }
+  else if (value !== "") {
     music[id][prop] = value;
   } else {
     delete music[id][prop];
@@ -59,12 +60,11 @@ function update(id, prop, value) {
   return music;
 
 }
-// Alter values below to test your code
 
-update(5439, "tracks", "Take a Chance on Me");
+update(5439, "tracks", "abc");
  update(2548, "artist", "");
-update(5439, "artist", "ABBA");
-document.write(JSON.stringify(music)+"<br>");
+update(2548, "tracks", "You Give Love a Bad Name");
+document.write(JSON.stringify(music));
 </script>
   </body>
 </html>
