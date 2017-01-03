@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Date Extend</title>
+    <script>
+
+         //@Initialing Date Object .
+
+      dateobj = new Date();
+        /**
+         *@Returns  current Day's Name
+         */
+        Date.prototype.getUTCDayName = function() {
+            alldays = new Array('Sunday', 'Monday', 'Tuesday',
+                'Wednesday', 'Thursday', 'Friday', 'Saturday');
+            return alldays[this.getUTCDay()];
+        };
+        /**
+         *@Returns NextDay's name
+         */
+        Date.prototype.getNextDay = function()  {
+          if(this.getUTCDay() == 6)
+          {
+            return alldays[0];
+          }
+          else {
+            return alldays[this.getUTCDay() + 1];
+          }
+        };
+        /**
+         *@displays current day;s Name And next day's Name .
+         */
+        document.write("Today's day : " + dateobj.getUTCDayName() + "</br>");
+        document.write("Tomorrow's day : " + dateobj.getNextDay());
+    </script>
+</head>
+</body>
+</html>

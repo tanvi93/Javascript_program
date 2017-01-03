@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var music = {
+	"1245": {
+		"artist": "Robert Palmer",
+		"tracks": []
+	},
+	"2468": {
+		"album": "1999",
+		"artist": "Prince",
+		"tracks": [
+			"1999",
+			"Little Red Corvette"
+		]
+	},
+	"2548": {
+		"album": "Slippery When Wet",
+		"artist": "Bon Jovi",
+		"tracks": [
+			"Let It Rock",
+
+		]
+	},
+	"5439": {
+		"album": "ABBA Gold"
+	}
+}
+
+// Keep a copy of the music for tests
+
+//JSON.stringify() method converts a JavaScript value to a JSON string
+// JSON.stringify turns a Javascript object into JSON text and stores that JSON text in a string.
+//
+// JSON.parse turns a string of JSON text into a Javascript object.
+
+
+function update(id, prop, value) {
+
+  if (prop === "tracks" && value !== "") {
+
+   if(music[id][prop]) {
+    music[id][prop].push(value);
+   }
+   else {
+    music[id][prop]=[value];
+   }
+ }
+  else if (value !== "") {
+    music[id][prop] = value;
+  } else {
+    delete music[id][prop];
+  }
+
+  return music;
+
+}
+
+update(5439, "tracks", "abc");
+ update(2548, "artist", "");
+update(2548, "tracks", "You Give Love a Bad Name");
+document.write(JSON.stringify(music));
+</script>
+  </body>
+</html>

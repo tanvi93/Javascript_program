@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>article info</title>
+</head>
+<body >
+  <p id="date1"></p>
+  <p id ="time"></p>
+  <p id="data2"></p>
+  <script>
+  //To display today's date
+  var d = new Date();
+  document.getElementById("date1").innerHTML = d.toDateString();
+//To display current time with running seconds
+  var myVar = setInterval(myTimer ,1000);
+function myTimer() {
+    var d = new Date();
+    document.getElementById("time").innerHTML = d.toLocaleTimeString();
+}
+//Create object from JSON string
+  var article =[
+  {"Author":"Edward Abbey","Date":"3rd mar 1995", "Publication":"Desert Solitaire" },
+    {"Author":"henry fielding","Date":"3rd mar 1996", "Publication":"tom jones"},
+    {"Author":"Jane Austen","Date":"3rd mar 1999", "Publication":"Pride and Prejudice" },
+    {"Author":"Tolstoy","Date":"3rd mar 1998", "Publication":"War and  Peace" },
+    {"Author":"Charles Dickens","Date":"3rd mar 1991", "Publication":"David Copperfield" }];
+    //Displaying data after every second one by one
+  var i=0;
+    function info() {
+        document.getElementById("data2").innerHTML= article[i].Author+" "+
+        article[i].Date + " " + article[i].Publication;
+        ++i;
+        i=(i>=article.length?0:i);
+}
+setInterval(info, 1000);
+</script>
+</body>
+</html>

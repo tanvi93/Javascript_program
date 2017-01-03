@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Curry method</title>
+</head>
+<body>
+  <h4>Additon by currying method is</h4>
+  <p id = "data"></p>
+  <script>
+
+var curriedAdd = function(a) {
+    return function(b) {
+        return a + b;
+    };
+};
+
+var currieddata = curriedAdd(13);
+document.getElementById("data").innerHTML =currieddata(12) ;
+  </script>
+
+</body>
+</html>

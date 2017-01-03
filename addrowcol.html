@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="table.css">
+</head>
+<body>
+
+
+  <table id = "my-table"  cellpadding = "0" cellspacing = "0" >
+
+  <tr>
+  <th id="td1">Name</th>
+  <th id="td1">Student</th>
+  <th id="td1">Place</th>
+  </tr>
+  </table>
+
+
+<script>
+function addRow() {
+    var tbl = document.getElementById('my-table');// table reference
+    var row = tbl.insertRow(tbl.rows.length);      // append table row;
+
+    // insert table cells to the new row
+    for (i = 0; i < tbl.rows[0].cells.length; i++) {
+      var element = document.createElement("input");//inserting data
+      element.type = "text";
+      element.setAttribute('id','newinput');
+      var cell =  row.insertCell(i);
+      cell.appendChild(element);
+
+    }
+}
+
+function addColumn() {
+    var tbl = document.getElementById('my-table'); // table reference
+    // open loop for each row and append cell
+    for (i = 0; i < tbl.rows.length; i++) {
+      var element = document.createElement("input");
+      element.type = "text";
+      element.setAttribute('id','newinput');
+    var cell1 =  tbl.rows[i].insertCell(tbl.rows[i].cells.length);
+    cell1.appendChild(element);
+    }
+}
+
+
+</script>
+<input type = "button" onclick = "addRow()" value = "Add Row" >
+<input type = "button" onclick = "addColumn()" value = "Add Column" >
+
+</body>
+</html>

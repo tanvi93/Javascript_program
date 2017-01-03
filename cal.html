@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>calculator</title>
+  <link rel="stylesheet" type="text/css" href="cal.css">
+</head>
+<body>
+  <script>
+  var z ;//variable z is declared empty
+  //declaration of function calc for different operations
+  function calc(oper){
+  var x =Number(document.calculator.value1.value);//value of firstnumber taken in variable x
+  var y = Number(document.calculator.value2.value);//value of secondnumber taken in variable y
+//switch case to define all operations
+  switch(oper){
+    case "add" :
+    z = x + y;
+    break;
+    case "sub" :
+    z = x - y;
+    break;
+    case "mul" :
+    z = x * y;
+    break;
+    case "div" :
+    z = x / y;
+    break;
+  }
+
+}
+//declaration of function result1 for displaying result in result box
+function result1(){
+  document.calculator.ans.value = z;
+}
+  </script>
+  <div>
+<form name="calculator">
+   <label for="Firstnumber">First Number</label>
+  <input type="text" name="Firstnumber" id=value1 >
+  
+<label for="Secondnumber">Second Number</label>
+  <input type="text" name="Secondnumber" id=value2 ><br><br>
+  <select name="arithmetic operations"  onchange="calc(this.value)" id="ar">
+    <option>select</option>
+    <option value="add"  >addition</option>
+    <option value="sub"  >subtraction</option>
+    <option value="mul"  >multiplication</option>
+    <option value="div"  >division</option>
+  </select>
+
+  <input type="button" onclick=result1() value="calculate"><br><br>
+    Result:<input type="text" name="result" id="ans">
+</form>
+</div>
+
+</body>
+</html>

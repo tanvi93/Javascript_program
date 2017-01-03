@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function Node(data, left, right) {
+            this.data = data;
+            this.left = left;
+            this.right = right;
+            this.show = show;
+        }
+        function show() {
+            return this.data;
+        }
+        function BST() {
+            this.root = null;
+            this.insert = insert;
+            this.inOrder = inOrder;
+            this.find = find;
+
+        }
+      	//inserting value in b-tree
+        function insert(data) {
+            var n = new Node(data, null, null);
+            if (this.root == null) {
+                this.root = n;
+            } else {
+                var current = this.root;
+                var parent;
+                while (true) {
+                    parent = current;
+                    if (data < current.data) {
+                        current = current.left;
+                        if (current == null) {
+                            parent.left = n;
+                            break;
+                        }
+                    } else {
+                        current = current.right;
+                        if (current == null) {
+                            parent.right = n;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+	//displaying data of b-tree
+        function inOrder(node) {
+            if (!(node == null)) {
+                inOrder(node.left);
+                document.write(node.show() + " ");
+                inOrder(node.right);
+            }
+        }
+
+	//searching data in b-tree
+        function find(data) {
+            var current = this.root;
+            while (current.data != data) {
+                if (data < current.data) {
+                    current = current.left;
+                } else {
+                    current = current.right;
+                }
+                if (current == null) {
+                    return null;
+                }
+            }
+            return current; //Documents a return value
+        }
+
+        var nums = new BST();
+        nums.insert(6);
+        nums.insert(7);
+        nums.insert(4);
+        nums.insert(5);
+
+
+     document.write("Inorder traversal: ");
+     inOrder(nums.root);
+
+        var value = 4;
+        var found = nums.find(value);
+        if (found != null) {
+          document.write("<br>");
+            document.write( value + " Found "  );
+        } else {
+            document.write(value + " not found");
+        }
+    </script>
+</head>
+
+</html>

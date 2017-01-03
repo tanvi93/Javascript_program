@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function Node(data) {
+    this.data = data;
+    this.next = null;
+}
+
+function linkedlist() {
+    this.length = 0;
+    this.head = null;
+}
+
+linkedlist.prototype.insert= function(value) {
+    var node = new Node(value),
+        currentNode = this.head;
+
+    // 1stcase: an empty list
+    if (!currentNode) {
+        this.head = node;
+        this._length++;
+        return node;
+    }
+    // 2nd case: a non-empty list
+    while (currentNode.next) {
+        currentNode = currentNode.next;
+    }
+
+    currentNode.next = node;
+    this.length++;
+    return node;
+};
+
+linkedlist.prototype.search = function(value) {
+    var currentNode = this.head;
+    var length = this.length;
+
+  while(currentNode.data != value)  {
+      currentNode = currentNode.next;
+      if (currentNode.next == null){
+        document.write("value not found");
+
+      }
+
+    }
+      document.write("value found");
+
+
+};
+
+linkedlist.prototype.remove = function(position) {
+    var currentNode = this.head,
+        length = this.length,
+        count = 0,
+
+        beforeNodeToDelete = null,
+        nodeToDelete = null,
+        deletedNode = null;
+
+    // 1stcase: an invalid position
+    if (position < 0 || position > length) {
+      document.write("Error");
+    }
+
+    // 2nd case: the first node is removed
+    if (position === 1) {
+        this.head = currentNode.next;
+        deletedNode = currentNode;
+        currentNode = null;
+        this.length--;
+
+        return deletedNode;
+    }
+
+    // 3rd case: any other node is removed
+    while (count < position) {
+        beforeNodeToDelete = currentNode;
+        nodeToDelete = currentNode.next;
+        count++;
+    }
+
+    beforeNodeToDelete.next = nodeToDelete.next;
+    deletedNode = nodeToDelete;
+    nodeToDelete = null;
+    this.length--;
+
+    return deletedNode;
+};
+
+      linkedlist.prototype.display = function () {
+    temp = this.head;
+    var d = "";
+    //if linked list is empty
+    if (temp == null)
+    document.write("List is null");
+    else {
+        while (temp != null)//display linked list
+        {
+            d = d + temp.data + "=>";
+            temp = temp.next;
+
+        }
+    }
+    document.write(d + "<br>");
+}
+
+var list = new linkedlist();
+list.insert(23);
+list.insert(14);
+list.insert(17);
+list.insert(54);
+list.display();
+list.remove(2);
+list.display();
+list.insert(37);
+list.display();
+list.search(21);
+      </script>
+  </body>
+</html>

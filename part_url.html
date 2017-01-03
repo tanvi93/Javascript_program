@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL_parts</title>
+</head>
+<body>
+  <h4>Parts of URL are</h4>
+  <div id="data"></div>
+  <script>
+//  var newURL = window.location.href;
+//to get the full URL path
+var newURL = window.location.protocol + "//" + window.location.host +
+             "/" + window.location.pathname+window.location.search+
+             window.location.hash;
+             console.log(newURL);
+
+var d =newURL.split( '/');
+ //var pathArray = window.location.pathname.split( '/' );
+
+console.log(d);
+
+var newPathname = "";
+for ( i = 0; i < d.length; i++) {
+    var para = document.createElement("p");
+    var node = document.createTextNode(d[i]);
+    para.appendChild(node);
+
+    var element = document.getElementById("data");
+    element.appendChild(para);
+// document.getElementById("data").innerHTML =  d[i] ;
+
+   }
+
+</script>
+</body>
+</html>

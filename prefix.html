@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>prefix bridgelabz</title>
+</head>
+	<body>
+	<input type="text" id="str" placeholder="Enter some string or number">
+	<button onclick ="pref()"> log </button>
+	<p id="data" style="color:red"></p>
+		<script>
+// Declare a string to prefix anything you log
+			var string = "Bridgelabz ";
+			//Function to add prefix
+			function pref(){
+				var d = string + document.getElementById("str").value;
+        document.getElementById("data").innerHTML= d;
+			}
+
+		</script>
+	</body>
+</html>
